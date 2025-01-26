@@ -103,6 +103,21 @@
     <button onclick="toggleAudio()">Unmute Audio</button>
 
     <script>
+        // Auto fullscreen on load
+        document.documentElement.requestFullscreen().catch((err) => {
+            console.warn("Fullscreen request denied", err);
+        });
+
+        // Warn user about unsaved changes when trying to leave
+        let isDirty = true;
+        window.addEventListener('beforeunload', function (e) {
+            if (isDirty) {
+                const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave?';
+                (e || window.event).returnValue = confirmationMessage;
+                return confirmationMessage;
+            }
+        });
+
         function toggleAudio() {
             const audio = document.getElementById('background-audio');
             if (audio.muted) {
