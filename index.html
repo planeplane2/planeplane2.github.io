@@ -14,13 +14,14 @@
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            animation: backgroundColorChange 1.5s infinite; /* Duration of the background change cycle */
         }
         h1 {
             position: absolute;
             top: 10%;
             font-size: 4em;
             white-space: nowrap;
-            animation: scrollTitle 2s linear infinite;
+            animation: scrollTitle 5s linear infinite;
         }
         p {
             color: red;
@@ -38,6 +39,21 @@
             }
             100% {
                 left: -100%;
+            }
+        }
+
+        @keyframes backgroundColorChange {
+            0% {
+                background-color: red;
+            }
+            33% {
+                background-color: green;
+            }
+            66% {
+                background-color: blue;
+            }
+            100% {
+                background-color: red;
             }
         }
     </style>
