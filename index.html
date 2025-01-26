@@ -16,20 +16,21 @@
             background-color: #f0f0f0;
             animation: backgroundColorChange 0.25s infinite;
         }
+        h1, p, a {
+            animation: textColorChange 0.25s infinite;
+        }
         h1 {
             position: absolute;
             top: 10%;
             font-size: 4em;
             white-space: nowrap;
-            animation: scrollTitle 0.5s linear infinite;
+            animation: scrollTitle 0.5s linear infinite, textColorChange 0.25s infinite;
         }
         p {
-            color: red;
             font-size: 1.5em;
             text-align: center;
         }
         a {
-            color: blue;
             text-decoration: none;
         }
 
@@ -57,6 +58,24 @@
             }
             100% {
                 background-color: red;
+            }
+        }
+
+        @keyframes textColorChange {
+            0% {
+                color: purple;
+            }
+            25% {
+                color: red;
+            }
+            50% {
+                color: green;
+            }
+            75% {
+                color: blue;
+            }
+            100% {
+                color: purple;
             }
         }
 
