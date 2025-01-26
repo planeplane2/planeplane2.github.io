@@ -139,10 +139,6 @@
         document.getElementById('epilepsy-warning').style.display = 'none';
         document.getElementById('main-content').style.display = 'flex';
 
-        // Auto fullscreen on load
-        document.documentElement.requestFullscreen().catch((err) => {
-            console.warn("Fullscreen request denied", err);
-        });
     }
 
     function decline() {
