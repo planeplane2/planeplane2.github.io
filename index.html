@@ -56,6 +56,20 @@
                 background-color: red;
             }
         }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -63,7 +77,20 @@
     <p>
         balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">balls</a> macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni
     </p>
-    
-    <audio src="https://dro.pm/cj" autoplay loop></audio>
+    <audio id="background-audio" src="https://dro.pm/cj" autoplay muted loop></audio>
+    <button onclick="toggleAudio()">Unmute Audio</button>
+
+    <script>
+        function toggleAudio() {
+            const audio = document.getElementById('background-audio');
+            if (audio.muted) {
+                audio.muted = false;
+                event.target.innerText = 'Mute Audio';
+            } else {
+                audio.muted = true;
+                event.target.innerText = 'Unmute Audio';
+            }
+        }
+    </script>
 </body>
 </html>
