@@ -14,15 +14,71 @@
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            animation: backgroundColorChange 0.25s infinite;
         }
-        #epilepsy-warning {
+        h1, p, a {
+            animation: textColorChange 0.25s infinite;
+        }
+        h1 {
+            position: absolute;
+            top: 10%;
+            font-size: 4em;
+            white-space: nowrap;
+            animation: scrollTitle 0.5s linear infinite, textColorChange 0.25s infinite;
+        }
+        p {
+            font-size: 1.5em;
             text-align: center;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        a {
+            text-decoration: none;
+        }
+
+        @keyframes scrollTitle {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+
+        @keyframes backgroundColorChange {
+            0% {
+                background-color: red;
+            }
+            25% {
+                background-color: green;
+            }
+            50% {
+                background-color: blue;
+            }
+            75% {
+                background-color: purple;
+            }
+            100% {
+                background-color: red;
+            }
+        }
+
+        @keyframes textColorChange {
+            0% {
+                color: purple;
+            }
+            25% {
+                color: red;
+            }
+            50% {
+                color: green;
+            }
+            75% {
+                color: blue;
+            }
+            100% {
+                color: purple;
+            }
+        }
+
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -36,21 +92,34 @@
         button:hover {
             background-color: #0056b3;
         }
-        #main-content {
-            display: none;
+
+        #epilepsy-warning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
 <div id="epilepsy-warning">
-    <h1>Epilepsy Warning</h1>
-    <p>This page contains flashing lights and colors that may trigger seizures for individuals with photosensitive epilepsy. Viewer discretion is advised.</p>
-    <button onclick="proceed()">I Understand and Wish to Proceed</button>
-    <button onclick="decline()">No, Take Me Back</button>
+    <h1>epilepsy warning (!)</h1>
+    <p>proceed if you like flashing lights i guess</p>
+    <button onclick="proceed()">proceed</button>
+    <button onclick="decline()">leave</button>
 </div>
 
-<div id="main-content">
+<div id="main-content" style="display: none;">
     <h1>Balls Macaroni</h1>
     <p>
         balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">balls</a> macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni balls macaroni
@@ -71,7 +140,7 @@
     }
 
     function decline() {
-        alert('You chose not to proceed. You will now be redirected.');
+        alert('redirecting...');
         window.location.href = 'https://www.google.com';
     }
 
